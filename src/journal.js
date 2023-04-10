@@ -2,20 +2,23 @@
 
 export default function Entry(text) {
   this.text = text;
+  this.wordCounted = 0;
+  this.occurancesOfWord = 0;
 }
 
 Entry.prototype.wordCounter = function(text) {
-  if (text.trim().length === 0) {
-    return 0;
-  }
   let wordCount = 0;
-  const textArray = text.split(" ");
+  const textArray = text.trim().split(" ");
+  console.log(textArray);
   textArray.forEach(function(element) {
     if (!Number(element)) {
       wordCount++;
+      console.log(wordCount);
     }
   });
-  return wordCount;
+  this.wordCounted = wordCount;
+  console.log(this.wordCounted);
+  return this.wordCounted;
 };
 
 Entry.prototype.numberOfOccurrencesInText = function(word, text) {
@@ -31,24 +34,3 @@ Entry.prototype.numberOfOccurrencesInText = function(word, text) {
   });
   return wordCount;
 };
-
-// function boldPassage(word, text) {
-//   if ((text.trim().length === 0) || (word.trim().length === 0)) {
-//     return null;
-//   }
-//   const p = document.createElement("p");
-//   let textArray = text.split(" ");
-//   textArray.forEach(function(element, index) {
-//     if (word === element) {
-//       const bold = document.createElement("strong");
-//       bold.append(element);
-//       p.append(bold);
-//     } else {
-//       p.append(element);
-//     }
-//     if (index !== (textArray.length - 1)) {
-//       p.append(" ");
-//     }
-//   });
-//   return p;
-// }

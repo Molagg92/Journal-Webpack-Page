@@ -11,8 +11,9 @@ function handleFormSubmission() {
   let newEntry = new Entry(inputtedPassage, inputtedWord);
   newEntry.wordCounter(inputtedPassage);
   newEntry.numberOfOccurrencesInText(inputtedWord, inputtedPassage);
-  // document.getElementById("total-count").innerText = wordCount;
-  // document.getElementById("selected-count").innerText = occurrencesOfWord;
+  document.getElementById("total-count").innerText = newEntry.wordCounted;
+  document.getElementById("selected-count").innerText = newEntry.occurrencesOfWord;
+  console.log(inputtedPassage);
 }
 //   let boldedPassage = boldPassage(word, passage);
 //   if (boldedPassage) {
